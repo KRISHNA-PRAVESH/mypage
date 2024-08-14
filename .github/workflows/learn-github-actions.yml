@@ -6,5 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4 #allows to access the repository the workflow is being triggered. 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'   # puts node and npm commands in the repository path. (without this line npm install cannot be done.)
       - run: npm install -g bats
       - run: bats -v
